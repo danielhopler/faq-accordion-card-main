@@ -1,0 +1,67 @@
+CSS Float, Display and Position - important items
+
+Display
+-Inline and Block Elements -Width and height do not apply to inline elements. 
+Inline elements only apply padding and margin horizontally. Padding is applied vertically
+but it won't push other elements away, so stay away from vertical padding for inline elements.
+
+-Change display type by using css `display: block, inline, or inline-block`
+- Inline-block gives properties of both inline and block depending on the content already in the page.
+
+Box-sizing
+- adding width, height, padding, and border will all make the size of a box bigger, while margin will just make it take up more area (without making the box bigger).
+- `box-sizing:`  - this property allows you to change the default behavior of content boxes. 
+- Default value = box-sizing: content-box - makes box bigger when padding and border is added. 
+- box-sizing: border-box - pushes content inward to include padding and border to maintain element width and height.
+
+Box-sizing fix : add this snippet at the top of your code projects 
+    html {
+        box-sizing: border-box;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+* margin: 0 auto;   << this will center align block-level elements horizontally. 
+                    << You must declare a width for this to work on an element  
+
+Float
+- Float has 4 values: none (default value), left (float element to left), right (float element to right), inherit (inherit from parent)
+
+- Clearing Floats - in order to return to the normal flow after an elemen has been floated, we have to clear the float.
+    - The Clear Property - clear:none, left , right, or both (clear items that have been floated to the left, right, or either ) << which value we use depends on where you want 
+      the layout to return to the normal flow.
+    
+    - Clearfix Hack - Forces an element to self-clear its children; Use on the parent of the floated element:
+        .my-class-name:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /** The above method is becoming outdated due to 'display: flow-root'
+
+ Position
+ - used to arrange position relative to its current position, its containing element, or browser viewport.
+
+ - Relative - example below will push the item 50px away from the left side of its current position and 20px away from bottom of current position.
+     position: relative;
+     left: 50px;
+     bottom: 20px;
+
+ - Absolute - moves an item out of a page's normal layout flow
+            - the z-index changes which item layers on top of other. Absolute positioned elements offset realtive to nearest ancestor element or to body element (if no parent) 
+
+     position: absolute;
+     z-index: 1;
+     top: 20px;
+     right: 20px;
+
+- Fixed -  give these high z-index >> z-index:100;  >> since it's fixed .
+
+- Sticky - stays in its initial spot until you scroll the page, then it becomes fixed, when the value in the offset property has been met.
+
+-Static Position - default value. Not needed to specify unless you are overriding another position.
+
+
+*** DEALING WITH FLOAT AND EQUAL COLUMN HEIGHT >>>>>>>>    One True Layout Method (See on CSS-Tricks.com/fluid-width-equal-height-columns)

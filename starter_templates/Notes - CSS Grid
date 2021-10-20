@@ -1,0 +1,58 @@
+CSS Grid
+
+ - Main diff vs Flexbox?  Flexbox is one dimensional ( items flow along one axis); Grid is 2 dimensional (You can alter layouts both by row and column)
+
+ Terms:
+    Grid - A grid is a pattern, used to line up design elements to help create a consistent flow and symmetrical layouts.
+            - Grids are broken down into equal width and evenly spaced columns (sometimes rows are added as a guide). 
+            - Gutters are the spaces between each column
+            - Page components are then arranged within the columns and can span multiple columns
+            - Standard layout - 12 equal column grid. (Ex: Bootstrap)
+
+ Using CSS-Grid:
+
+    Grid-Container
+
+        - grid-container - parent element >>>> .grid-container {  display: grid /OR/  inline-grid (used to make grid 
+                                                container and items the same width as their content)}
+        - grid item - child elements
+
+    Define Grid Columns and Rows
+
+        - grid-template-columns: 100px 100px 100px;   /* 3 columns each 100px wide */
+        - grid-template-rows: 100px 100px 100px;   /* 3 rows each 100px tall */
+            - Note that grid items don't automatically try to fill up extra space like you can do in Flexbox.
+        - repeat(n, size of column) - property value- instead of listing number of columns or rows you can use the repeat function
+        - gap:   - property to add gutters btwn columns and rows.
+        - fr: - flexible unit for CSS Grid that represents a fraction of available space within .grid-container.    
+              -  (Helps us avoid calculating percentages for gaps)
+
+     Gutters and Gap Property in Grid
+
+        - The Gap Property is used for creating gutters
+        - Shorthand for row-gap and column-gap >>  gap: 10px 20px;         (row 1st, column 2nd)
+        - You cannot use `fr` unit with gap property
+
+        * Note - check browser support for specific css properties at >>> caniuse.com
+        
+        - minmax() - defines size range greater than or equal to min AND less than or equal to max.
+                    - Example: grid-template-rows: minmax(100px, auto) >> sets min row height to 100px, max height to auto.
+                    - minmax() good for setting min value but keeping flexible max (auto) for longer content
+    
+    Positioning with Grid (Grid Lines)
+
+        - Grid lines divide the grid into columns and rows. They are numbered left to right and top to bottom.
+
+        - Grid Position Properties: these position-based properties are applied to specific grid-items, not the grid-container
+            Longhand = grid-column-start, grid-column-end, grid-row-start, grid-row-end
+            Shorthand = grid-column, grid-row
+
+            Example:
+                 .grid-item-1 {
+                     grid-row: 1 / 3;    (defines the placement of .grid-item-1 to be from grid cell 1 to 3 veritically)
+                }
+
+
+        * Firefox Browser has a Grid Inspector that can be very handy for working with CSS Grid:
+            - Firefox Inspector >> click Layout tab >>  also click arrow icon to left to see css properties and grid inspector at same time.
+            - in HTML panel, wherever you see grid panel, you can click on it to highlight the Grid panel.

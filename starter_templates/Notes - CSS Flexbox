@@ -1,0 +1,43 @@
+CSS Flexbox - See cheatsheet in css_learn folder for doc support
+
+- provides many ways for aligning content, ordering items, and implementing flexible sizing.
+- Items are laid out on a single axis, either columns or rows.
+- Flex Container - This is the parent element
+    - Flex items - the child elements. Only the child elements of the flex container are flex items, not items within the flex items.
+                 - However, you can nest flex containers within another flex container.
+                 - Flex items are (by default) displayed in a row, and become the same size as their content, but the flex container still spans the width of its container.
+            EXAMPLE:  
+                        <section class="flex container">
+                           <div> flex item
+                              <div> Not a flex item </div>
+                           </div>
+                           <div> flex item </div>
+                           <div> flex item </div>
+                        </section>
+
+- To use Flexbox, the flex container must be defined first, using the `display: flex;` property
+    - display: flex   vs   display: inline-flex    >>>  inline-flex will make the flex container span the width of its content, the flex items.
+
+Flexbox Container Properties 
+
+- flex-direction:  row (default) , column , row-reverse, column-reverse   >>> Flexbox aligns items from left to right, and top to bottom by default.
+- flex-wrap: nowrap (default), wrap, wrap-reverse >>> by default, all flex items will resize to fit in one line on axis. `wrap` value will layout items over multiple rows.
+- flex-flow: shorthand for flex-direction and flex-wrap. Just apply value for flex direction and flex-wrap to flex flow like below:
+        - flex-flow: wrap column;
+- justify-content: (See cheatsheet for properties) >>>  
+
+Flex Item Properties:
+   1. flex-basis - sets initial size of the flex-items
+   2. flex-grow - determines how items will expand if there's extra space in container
+   3. flex-shrink - determines how items will shrink if there isn't enough space in container
+      - Shorthand =  flex: flex-grow flex-shrink flex-basis;
+        Example =    flex: 0 1 40%;
+
+- Order - literally assign ' order: 1-n` to for each flex item as you want it to appear in page
+
+
+Flexbox NAVS - See link - https://stackoverflow.com/questions/23621650/how-to-justify-a-single-flexbox-item-override-justify-content
+
+Sticky Header - position: sticky; top: 0;
+
+Resources - https://flexboxfroggy.com/
